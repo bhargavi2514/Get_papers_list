@@ -1,32 +1,37 @@
 # get-papers-list
-A Python CLI tool to fetch PubMed research papers based on a search query, identify company-affiliated authors, and export results to CSV.
+
+A Python CLI tool that fetches PubMed articles based on a search query, identifies company-affiliated authors (non-academic), and exports the relevant information to a CSV file.
+---
+## How the Code is Organized :
+
+get-papers-list/
+├── get_papers_list/
+│ ├── init.py # Marks the folder as a Python package
+│ ├── fetcher.py # Handles PubMed API calls (esearch & efetch)
+│ ├── parser.py # Parses XML to extract company-affiliated authors
+│ ├── utils.py # Utility functions like CSV writing
+│ └── main.py # CLI entry point; connects all modules
+├── README.md # Documentation
+├── pyproject.toml # Poetry configuration for dependencies & CLI
+└── test_output.csv # Sample output file
 
 ---
 
-## Features
+##  How to Install and Run
 
-- Uses PubMed E-utilities API (`esearch`, `efetch`)
-- Supports advanced PubMed queries (e.g. `"covid-19 AND vaccine"`)
-- Detects non-academic authors (e.g. biotech/pharma affiliations)
-- Extracts:
-  - PubmedID
-  - Title
-  - Publication Date
-  - Non-academic Author(s)
-  - Company Affiliation(s)
-  - Corresponding Author Email(s)
+### Prerequisites
+
+- Python 3.10 or later
+- [Poetry](https://python-poetry.org/docs/#installation)
 
 ---
 
-## Tech Stack
-
-- Python 3.10+
-- Poetry (Dependency Management & CLI packaging)
-- Libraries: `requests`, `lxml`
-
----
-
-## Installation
+### Install Dependencies
 
 ```bash
-git clone https://github.com/YOUR-USERNAM
+- poetry install
+## to run the program:
+poetry run get-papers-list "covid-19 AND vaccine" -f output.csv -n 20 -d
+
+LLM's i have used:
+ChatGPT 4 for planning,code modularization,CLI design
