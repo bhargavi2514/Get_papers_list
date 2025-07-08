@@ -28,10 +28,10 @@ get-papers-list/
 
 ### Install Dependencies
 
-```bash
-- poetry install
-## to run the program:
-poetry run get-papers-list "covid-19 AND vaccine" -f output.csv -n 20 -d
+Open a terminal in the project directory and run:
+>>poetry install
+>>poetry run get-papers-list "covid-19 AND vaccine" -f output.csv -n 20 -d
 
-LLM's i have used:
+
+## LLM's i have used:
 ChatGPT 4 for planning,code modularization,CLI design
