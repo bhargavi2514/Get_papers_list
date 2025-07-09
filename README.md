@@ -22,7 +22,6 @@ get-papers-list/
 ### Prerequisites
 
 - Python 3.10 or later
-- [Poetry](https://python-poetry.org/docs/#installation)
 
 ---
 
