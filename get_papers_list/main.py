@@ -49,18 +49,21 @@ def main():
 
         # Step 3: Parse for company-affiliated authors
         results = extract_company_affiliations(xml_data)
+
+        # Step 4: Debug results count
         if args.debug:
             print(f"[DEBUG] Parsed {len(results)} articles with non-academic authors")
 
-        # Step 4: Output
-        if args.file:
-            save_to_csv(results, args.file)
-        else:
-            if not results:
-                print("No company-affiliated authors found.")
+        # Step 5: Output results
+        if results:
+            if args.file:
+                save_to_csv(results, args.file)
+                print(f"[INFO] Results saved to {args.file}")
             else:
                 for entry in results:
                     print(entry)
+        else:
+            print("No company-affiliated authors found.")
 
     except Exception as e:
         print(f"An error occurred: {e}", file=sys.stderr)
